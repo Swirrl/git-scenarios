@@ -128,7 +128,7 @@ gitGraph
 
 This will cause `git` to replay your commits one by one ontop of `2.1`.  If there are any conflicts (overlapping patches) it will stop and allow you to fix the conflicts up one by one.  This can be beneficial to pursuing a big merge, as git will tell you exactly what commits are introducing the conflicts.  A disadvantage is that you may end up having to resolve more conflicts than you might need to if you were doing a big merge; e.g. a conflicting commit could potentially have been reverted in a future commit on main.
 
-Regardless learning this workflow is a good starting point to progressing with git, as it introduces the important ideas of caring about the commit history you are creating.
+Regardless learning this workflow is a good starting point to progressing with git, as it introduces the important ideas of caring about the commit history you are creating.  One thing you should aspire to do in this flow is to rewrite commits `3` and `4` so that they look as if they were aware of the changes in `2.1` all along.  Doing this will make your projects history much more valuable for the tasks of maintainance and review.
 
 Finally after merging our rebased feature branch our history will look like this:
 
