@@ -130,7 +130,34 @@ This will cause `git` to replay your commits one by one ontop of `2.1`.  If ther
 
 Regardless learning this workflow is a good starting point to progressing with git, as it introduces the important ideas of caring about the commit history you are creating.  One thing you should aspire to do in this flow is to rewrite commits `3` and `4` so that they look as if they were aware of the changes in `2.1` all along.  Doing this will make your projects history much more valuable for the tasks of maintainance and review.
 
-Finally after merging our rebased feature branch our history will look like this:
+By default if we perform a 
+
+```
+$ git checkout main
+$ git merge feature
+```
+
+git will perform a fast-forward merge, making the history appear completely linear: 
+
+
+```mermaid
+gitGraph
+    commit id: "1"
+    commit id: "2"
+    commit id: "2.1"
+    commit id: "3"
+    commit id: "4"
+```
+
+The disadvantage of this is that we lose information in the histories structure about where a feature begins and ends.  For this reason it can be useful
+to instead merge with `--no-ff`:
+
+```
+$ git checkout main
+$ git merge feature --no-ff
+```
+
+Which gives us a clean history like this, that clearly indicates the beginning and end of the feature work:
 
 ```mermaid
 gitGraph
